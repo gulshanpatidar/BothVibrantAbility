@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 //main class or driver class
-public class Main {
+public class Main_class {
     //function to add items in food cart
     static void addItems(restro food) {
         System.out.println("####  Below is our menu , type the desired food code to add this in your food cart  ####");
@@ -24,6 +24,7 @@ public class Main {
         addItems(food);
         food.printBill();
         System.out.println("your food will be delivered within half an hour, contact on 1264726316 for any query");
+
     }
 
     //method to be called after booking the room of basic type
@@ -32,7 +33,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         while (true) {
             String services = basicRoom.getServices();
-            System.out.println(services);
+            System.out.println(services + "\n5. For exit");
             byte choice = sc.nextByte();
             switch (choice) {
                 case 1: {
@@ -68,7 +69,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         while (true) {
             String services = specialRoom.getServices();
-            System.out.println(services);
+            System.out.println(services + "7. For exit");
             byte choice = sc.nextByte();
             switch (choice) {
                 case 1: {
@@ -181,11 +182,10 @@ public class Main {
         switch (choice) {
             case 1: {
                 System.out.println("in Basic room you will get these facilities and services");
-                //yaha par likh denge saari
                 System.out.println("Now you have to choose from two types of room");
                 System.out.println("1. Single bed room\n2. Double bed room");
                 int numberOfBeds = sc.nextByte();
-                if (numberOfBeds == 1) {
+                if (numberOfBeds == 1 || numberOfBeds ==2) {
                     System.out.println("you have choosen single bed room of basic catagory");
                     System.out.println("to book this room please enter the details below");
                     System.out.println("Enter your first name: ");
@@ -208,28 +208,6 @@ public class Main {
                     System.out.println(details);
                     afterBooked(basicRoom);
 
-                } else if (numberOfBeds == 2) {
-                    System.out.println("you have choosen double bed room of basic catagory");
-                    System.out.println("to book this room please enter the details below");
-                    System.out.println("Enter your first name: ");
-                    String first = sc.next();
-                    System.out.println("enter your last name");
-                    String last = sc.next();
-                    String name = first + " " + last;
-                    System.out.println("enter your adhar id: ");
-                    long adhar = sc.nextLong();
-                    System.out.println("enter your mobile number: ");
-                    long mobile = sc.nextLong();
-                    System.out.println("enter your city: ");
-                    String address = sc.next();
-                    System.out.println("enter your mail id: ");
-                    String email = sc.next();
-                    Basic basicRoom = new Basic(name, adhar, mobile, address, numberOfBeds, email);
-                    basicRoom.setPrice();
-                    String details = basicRoom.getDetails();
-                    System.out.println(details);
-                    afterBooked(basicRoom);
-
                 } else {
                     System.out.println("this is not a valid option");
                 }
@@ -237,34 +215,11 @@ public class Main {
             }
             case 2: {
                 System.out.println("in special room you will get these facilities and services");
-                //yaha par likh denge
                 System.out.println("Now you have to choose from two types of room");
                 System.out.println("1. Single bed room\n2. Double bed room");
                 int numberOfBeds = sc.nextByte();
-                if (numberOfBeds == 1) {
+                if (numberOfBeds == 1 || numberOfBeds==2) {
                     System.out.println("you have choosen single bed room of special catagory");
-                    System.out.println("to book this room please enter the details below");
-                    System.out.println("Enter your first name: ");
-                    String first = sc.next();
-                    System.out.println("enter your last name");
-                    String last = sc.next();
-                    String name = first + " " + last;
-                    System.out.println("enter your adhar id: ");
-                    long adhar = sc.nextLong();
-                    System.out.println("enter your mobile number: ");
-                    long mobile = sc.nextLong();
-                    System.out.println("enter your city: ");
-                    String address = sc.next();
-                    System.out.println("enter your mail id: ");
-                    String email = sc.next();
-                    special specialRoom = new special(name, adhar, mobile, address, numberOfBeds, email);
-                    specialRoom.setPrice();
-                    String details = specialRoom.getDetails();
-                    System.out.println(details);
-                    afterBooked(specialRoom);
-
-                } else if (numberOfBeds == 2) {
-                    System.out.println("you have choosen double bed room of special catagory");
                     System.out.println("to book this room please enter the details below");
                     System.out.println("Enter your first name: ");
                     String first = sc.next();
@@ -296,30 +251,8 @@ public class Main {
                 System.out.println("Now you have to choose from two types of room");
                 System.out.println("1. Single bed room\n2. Double bed room");
                 int numberOfBeds = sc.nextByte();
-                if (numberOfBeds == 1) {
+                if (numberOfBeds == 1 || numberOfBeds==2) {
                     System.out.println("you have choosen single bed room of advanced catagory");
-                    System.out.println("to book this room please enter the details below");
-                    System.out.println("Enter your first name: ");
-                    String first = sc.next();
-                    System.out.println("enter your last name");
-                    String last = sc.next();
-                    String name = first + " " + last;
-                    System.out.println("enter your adhar id: ");
-                    long adhar = sc.nextLong();
-                    System.out.println("enter your mobile number: ");
-                    long mobile = sc.nextLong();
-                    System.out.println("enter your city: ");
-                    String address = sc.next();
-                    System.out.println("enter your mail id: ");
-                    String email = sc.next();
-                    advanced advancedRoom = new advanced(name, adhar, mobile, address, numberOfBeds, email);
-                    advancedRoom.setPrice();
-                    String details = advancedRoom.getDetails();
-                    System.out.println(details);
-                    afterBooked(advancedRoom);
-
-                } else if (numberOfBeds == 2) {
-                    System.out.println("you have choosen double bed room of advanced catagory");
                     System.out.println("to book this room please enter the details below");
                     System.out.println("Enter your first name: ");
                     String first = sc.next();
