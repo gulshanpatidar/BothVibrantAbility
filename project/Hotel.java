@@ -14,6 +14,7 @@ abstract class Hotel {
     boolean availibiltyOfSwimmingPool;
     int price;
     int totalCost;
+    String roomType;
 
     Hotel(String n, long a, long mobile, String add, int num) {
         name = n;

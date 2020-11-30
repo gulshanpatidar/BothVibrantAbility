@@ -13,6 +13,7 @@ class special extends Basic {
         availibiliyOfAc = true;
         availibiliyOfWifi = true;
         price = 2000;
+        roomType = "special";
     }
 
     public String getServices() {

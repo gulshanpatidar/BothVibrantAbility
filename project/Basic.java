@@ -16,6 +16,7 @@ class Basic extends Hotel {
         availibilityOfView = false;
         availibiltyOfSwimmingPool = false;
         price = 1000;
+        roomType = "Basic";
     }
     //some setters and getters
     protected void setPrice() {
@@ -32,13 +33,13 @@ class Basic extends Hotel {
     }
     //returns the details of room
     public String getDetails() {
-        String str1 = "your have booked basic room with " + numberOfbeds + " number of beds\n";
+        String str1 = "your have booked " +roomType +" room with " + numberOfbeds + " number of beds\n";
         String str2 = "see your details below ----->\n";
         String str3 = "name - " + name + "\nAdhar Number - " + adharId + "\nMobile Number - " + mobileNumber + "\n city - " + address + "\nEmail - " + email;
         String str4 = "\nyou will get these additional facilities with your room ----->";
         String str5 = "\navailibility of AC ==> " + availibiliyOfAc + "\nAvailibility of Wifi ==> " + availibiliyOfWifi + "\nAvailibility of view ==> " + availibilityOfView + "\nAvailibility of Swimming pool ==> " + availibiltyOfSwimmingPool;
         String str6 = "\n \n below are your pricing details";
-        String str7 = "\n Total cost of the room is " + totalCost + "\nafter adding gst " + "\nand your unique hash code is " + uniqueCode + "\nYour room number is " + roomNumber;
+        String str7 = "\n Total cost of the room without gst is " + price + "\nTotal cost of the room after adding gst is " + totalCost+"\nand your unique hash code is " + uniqueCode + "\nYour room number is " + roomNumber;
         String str8 = "\n--------- Kindly do not share this unique hash code with anyone, also this is the password of your room lock ---------";
         return str1 + str2 + str3 + str4 + str5 + str6 + str7 + str8;
     }

@@ -13,6 +13,7 @@ class advanced extends special {
         availibilityOfView = true;
         availibiltyOfSwimmingPool = true;
         price = 4000;
+        roomType = "advanced";
     }
 
 
