@@ -5,6 +5,7 @@ class Rural_area extends flats implements rental{
         super(name,address,adhar,mobile);
         this.flatNumber = 0;
         this.flatSize = size;//in BHK
+        this.flattype = "Rural Area";
     }
 
     @Override

@@ -7,6 +7,7 @@ abstract class flats {
     String uniqueCode;
     int monthlyCharge;
     byte flatSize;
+    String flattype;
 
     public flats(String name,String permanent_address,long adharId,long mobileNumber){
         this.name = name;

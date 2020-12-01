@@ -1,3 +1,6 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.Timer;
 import java.util.Date;
@@ -30,16 +33,8 @@ public class Main_class {
     }
 
     //method to be called after booking the room of basic type
-    static void afterBooked(Basic basicRoom) throws ParseException{
-        System.out.println("\nnow as you have booked the room, you will have following options till your booking expired ===>");
+    static void afterBooked(Basic basicRoom){
         Scanner sc = new Scanner(System.in);
-        Date date = new Date();
-        Timer timer = new Timer();
-        Checker ch = new Checker();
-        ch.setDate(date);
-        System.out.println("you have booked room at "+date);
-        System.out.println("your session will expire at "+ch.getNext());
-        timer.schedule(ch,0,10000);
         while (true) {
             String services = basicRoom.getServices();
             System.out.println(services + "\n5. For exit");
@@ -73,16 +68,8 @@ public class Main_class {
     }
 
     //method to be called after booking the room of special type
-    static void afterBooked(special specialRoom) throws ParseException {
-        System.out.println("\nnow as you have booked the room, you will have following options till your booking expired ===>");
+    static void afterBooked(special specialRoom) {
         Scanner sc = new Scanner(System.in);
-        Date date = new Date();
-        Timer timer = new Timer();
-        Checker ch = new Checker();
-        ch.setDate(date);
-        System.out.println("you have booked room at "+date);
-        System.out.println("your session will expire at "+ch.getNext());
-        timer.schedule(ch,0,10000);
         while (true) {
             String services = specialRoom.getServices();
             System.out.println(services + "7. For exit");
@@ -124,16 +111,8 @@ public class Main_class {
     }
 
     //method to be called after booking the room of advanced type
-    static void afterBooked(advanced advancedRoom) throws ParseException {
-        System.out.println("\nnow as you have booked the room, you will have following options till your booking expired ===>");
+    static void afterBooked(advanced advancedRoom) {
         Scanner sc = new Scanner(System.in);
-        Date date = new Date();
-        Timer timer = new Timer();
-        Checker ch = new Checker();
-        ch.setDate(date);
-        System.out.println("you have booked room at "+date);
-        System.out.println("your session will expire at "+ch.getNext());
-        timer.schedule(ch,0,10000);
         while (true) {
             String services = advancedRoom.getServices();
             System.out.println(services);
@@ -186,15 +165,41 @@ public class Main_class {
         }
     }
 
-    static void afterRant(Rural_area rural_areaApartment){
-        System.out.println("you have successfully booked "+rural_areaApartment.flatSize+"BHK flat of rural area");
-        System.out.println("your monthly charge of apartment is " + rural_areaApartment.getMonthlyCharge());
-        System.out.println("your unique code of the apartment is "+rural_areaApartment.getUniqueCode());
-        System.out.println("your apartment number is "+rural_areaApartment.flatNumber);
+    static void afterRant(){
+        while (true){
+            Scanner sc = new Scanner(System.in);
+            System.out.println("you have the following options till you are living in this apartment");
+            System.out.println("\n1. For Water related issues");
+            System.out.println("2. For Electricity related issues");
+            System.out.println("3. For any complaints or suggestions");
+            System.out.println("4. For emergency use");
+            System.out.println("5. For exit");
+            byte service = sc.nextByte();
+            switch (service){
+                case 1:
+                    System.out.println("please call on 2347826835");
+                    break;
+                case 2:
+                    System.out.println("please call on 2347826835");
+                    break;
+                case 3:
+                    System.out.println("please call on 2347826835");
+                    break;
+                case 4:
+                    System.out.println("please call on 102");
+                    break;
+                case 5:
+                    System.out.println("thank you for using our services");
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("please enter a valid choice");
+            }
+        }
     }
 
     //main method to run the whole program
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, IOException {
 
         Scanner sc = new Scanner(System.in);
 
@@ -242,9 +247,23 @@ public class Main_class {
                             basicRoom.setPrice();
                             String details = basicRoom.getDetails();
                             System.out.println(details);
+                            System.out.println("\nnow as you have booked the room, you will have following options till your booking expired ===>");
+                            Date date = new Date();
+                            Timer timer = new Timer();
+                            Checker ch = new Checker();
+                            ch.setDate(date);
+                            System.out.println("you have booked room at "+date);
+                            System.out.println("your session will expire at "+ch.getNext());
+                            String str = "Name : " + basicRoom.name + "\nAdhar : " + basicRoom.adharId+ "\nMobile Number : " + basicRoom.mobileNumber + "\nAddress : "+basicRoom.address + "\nUnique code : " + basicRoom.uniqueCode + "\nEmail : " +basicRoom.email + "Room Type : " + basicRoom.roomType + "\nRoom Number : " + basicRoom.roomNumber + "\nCheck in time : " + date + "\nCheck out time : " + ch.getNext();
+                            FileWriter fw = new FileWriter("hotel.txt");
+                            for (int i = 0; i < str.length(); i++)
+                                fw.write(str.charAt(i));
+                            System.out.println("entry recorded");
+                            fw.close();
+                            timer.schedule(ch,0,10000);
                             try {
                                 afterBooked(basicRoom);
-                            }catch (ParseException e){
+                            }catch (Exception e){
                                 System.out.println("an exception was occured");
                             }
 
@@ -278,7 +297,25 @@ public class Main_class {
                             specialRoom.setPrice();
                             String details = specialRoom.getDetails();
                             System.out.println(details);
-                            afterBooked(specialRoom);
+                            System.out.println("\nnow as you have booked the room, you will have following options till your booking expired ===>");
+                            Date date = new Date();
+                            Timer timer = new Timer();
+                            Checker ch = new Checker();
+                            ch.setDate(date);
+                            System.out.println("you have booked room at "+date);
+                            System.out.println("your session will expire at "+ch.getNext());
+                            String str = "Name : " + specialRoom.name + "\nAdhar : " + specialRoom.adharId+ "\nMobile Number : " + specialRoom.mobileNumber + "\nAddress : "+specialRoom.address + "\nUnique code : " + specialRoom.uniqueCode + "\nEmail : " +specialRoom.email + "Room Type : " + specialRoom.roomType + "\nRoom Number : " + specialRoom.roomNumber + "\nCheck-in time : "+date + "\nCheck-out time : "+ch.getNext();
+                            FileWriter fw = new FileWriter("hotel.txt");
+                            for (int i = 0; i < str.length(); i++)
+                                fw.write(str.charAt(i));
+                            System.out.println("entry recorded");
+                            fw.close();
+                            timer.schedule(ch,0,10000);
+                            try {
+                                afterBooked(specialRoom);
+                            }catch (Exception e){
+                                System.out.println("exception occured");
+                            }
 
                         } else {
                             System.out.println("this is not a valid option");
@@ -311,7 +348,25 @@ public class Main_class {
                             advancedRoom.setPrice();
                             String details = advancedRoom.getDetails();
                             System.out.println(details);
-                            afterBooked(advancedRoom);
+                            System.out.println("\nnow as you have booked the room, you will have following options till your booking expired ===>");
+                            Date date = new Date();
+                            Timer timer = new Timer();
+                            Checker ch = new Checker();
+                            ch.setDate(date);
+                            System.out.println("you have booked room at "+date);
+                            System.out.println("your session will expire at "+ch.getNext());
+                            String str = "Name : " + advancedRoom.name + "\nAdhar : " + advancedRoom.adharId+ "\nMobile Number : " + advancedRoom.mobileNumber + "\nAddress : "+advancedRoom.address + "\nUnique code : " + advancedRoom.uniqueCode + "\nEmail : " +advancedRoom.email + "Room Type : " + advancedRoom.roomType + "\nRoom Number : " + advancedRoom.roomNumber + "\nCheck-in time : "+date+"\nCheck-out time : "+ch.getNext();
+                            FileWriter fw = new FileWriter("hotel.txt");
+                            for (int i = 0; i < str.length(); i++)
+                                fw.write(str.charAt(i));
+                            System.out.println("entry recorded");
+                            fw.close();
+                            timer.schedule(ch,0,10000);
+                            try {
+                                afterBooked(advancedRoom);
+                            }catch (Exception e){
+                                System.out.println("exception occured");
+                            }
 
                         } else {
                             System.out.println("this is not a valid option");
@@ -335,7 +390,7 @@ public class Main_class {
                 byte ap = sc.nextByte();
                 switch (ap){
                     case 1:
-                        System.out.println("you have choosen the rural area apartments");
+                        System.out.println("you have choosen the rural area apartments\n");
                         System.out.println("you have following type of apartments in this location");
                         System.out.println("1. 1BHK \n2. 2BHK \n3. 3BHK");
                         byte flatSizeR = sc.nextByte();
@@ -357,6 +412,24 @@ public class Main_class {
                         Rural_area rural_area = new Rural_area(nameR,townR,adharR,mobileR,flatSizeR);
                         rural_area.setCharge();
                         rural_area.setFlatNumber();
+                        System.out.println("you have successfully booked "+rural_area.flatSize+"BHK flat of rural area");
+                        System.out.println("your monthly charge of apartment is " + rural_area.getMonthlyCharge());
+                        System.out.println("your unique code of the apartment is "+rural_area.getUniqueCode());
+                        System.out.println("your apartment number is "+rural_area.flatNumber);
+                        Date date = new Date();
+                        Timer timer = new Timer();
+                        Checker1 checker1 = new Checker1();
+                        checker1.setDate(date);
+                        System.out.println("you have booked your apartment on "+ date);
+                        System.out.println("your monthly subscription will end on " + checker1.getNext());
+                        String str = rural_area.name + "\n" + rural_area.permanent_address + "\n" + rural_area.adharId + "\n" + rural_area.mobileNumber + "\n" + rural_area.flatNumber + "\n"+rural_area.uniqueCode + "\n"+ rural_area.flattype + "\n" + rural_area.flatSize + "\n" + date + "\n" + checker1.getNext();
+                        FileWriter fw = new FileWriter("apartment.txt");
+                        for (int i = 0; i < str.length(); i++)
+                            fw.write(str.charAt(i));
+                        System.out.println("booking recorded successfully");
+                        fw.close();
+                        timer.schedule(checker1,0,10000);
+                        afterRant();
                         break;
                     case 2:
                         System.out.println("you have choosen the middle of the town area apartments");
@@ -381,6 +454,24 @@ public class Main_class {
                         Middle_of_the_town middle_of_the_town = new Middle_of_the_town(nameM,townM,adharM,mobileM,flatSizeM);
                         middle_of_the_town.setCharge();
                         middle_of_the_town.setFlatNumber();
+                        System.out.println("you have successfully booked "+middle_of_the_town.flatSize+"BHK flat of middle of the town area");
+                        System.out.println("your monthly charge of apartment is " + middle_of_the_town.getMonthlyCharge());
+                        System.out.println("your unique code of the apartment is "+middle_of_the_town.getUniqueCode());
+                        System.out.println("your apartment number is "+middle_of_the_town.flatNumber);
+                        Date date1 = new Date();
+                        Timer timer1 = new Timer();
+                        Checker1 checker11 = new Checker1();
+                        checker11.setDate(date1);
+                        System.out.println("you have booked your apartment on "+ date1);
+                        System.out.println("your monthly subscription will end on " + checker11.getNext());
+                        String str1 = "Name : " + middle_of_the_town.name + "\nAddress : " + middle_of_the_town.permanent_address + "\nAdhar Id : " + middle_of_the_town.adharId + "\nMobile Number : " + middle_of_the_town.mobileNumber + "\nFlat Number : " + middle_of_the_town.flatNumber + "\nUnique Code : "+middle_of_the_town.uniqueCode + "\nFlat type : "+ middle_of_the_town.flattype + "\nFlat Size : " + middle_of_the_town.flatSize + "\n" + date1 + "\n" + checker11.getNext();
+                        FileWriter fw1 = new FileWriter("apartment.txt");
+                        for (int i = 0; i < str1.length(); i++)
+                            fw1.write(str1.charAt(i));
+                        System.out.println("booking recorded successfully");
+                        fw1.close();
+                        timer1.schedule(checker11,0,10000);
+                        afterRant();
                         break;
                     case 3:
                         System.out.println("you have choosen the sea facing area apartments");
@@ -405,6 +496,24 @@ public class Main_class {
                         SeaFacing seaFacing = new SeaFacing(nameS,townS,adharS,mobileS,flatSizeS);
                         seaFacing.setCharge();
                         seaFacing.setFlatNumber();
+                        System.out.println("you have successfully booked "+seaFacing.flatSize+"BHK flat of sea facing area");
+                        System.out.println("your monthly charge of apartment is " + seaFacing.getMonthlyCharge());
+                        System.out.println("your unique code of the apartment is "+seaFacing.getUniqueCode());
+                        System.out.println("your apartment number is "+seaFacing.flatNumber);
+                        Date date2 = new Date();
+                        Timer timer2 = new Timer();
+                        Checker1 checker12 = new Checker1();
+                        checker12.setDate(date2);
+                        System.out.println("you have booked your apartment on "+ date2);
+                        System.out.println("your monthly subscription will end on " + checker12.getNext());
+                        String str2 = "Name : " + seaFacing.name + "\nAddress : " + seaFacing.permanent_address + "\nAdhar Id : " + seaFacing.adharId + "\nMobile Number : " + seaFacing.mobileNumber + "\nFlat Number : " + seaFacing.flatNumber + "\nUnique Code : "+seaFacing.uniqueCode + "\nFlat type : "+ seaFacing.flattype + "\nFlat Size : " + seaFacing.flatSize + "\n" + date2 + "\n" + checker12.getNext();
+                        FileWriter fw2 = new FileWriter("apartment.txt");
+                        for (int i = 0; i < str2.length(); i++)
+                            fw2.write(str2.charAt(i));
+                        System.out.println("booking recorded successfully");
+                        fw2.close();
+                        timer2.schedule(checker12,0,10000);
+                        afterRant();
                         break;
                     default:
                         System.out.println("you have entered an wrong choice");

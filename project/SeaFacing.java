@@ -5,6 +5,7 @@ class SeaFacing extends flats implements rental{
         super(name,address,adhar,mobile);
         this.flatNumber = 0;
         this.flatSize = size;//in BHK
+        this.flattype = "sea facing";
     }
 
     @Override
@@ -25,7 +26,7 @@ class SeaFacing extends flats implements rental{
         int randInt = random.nextInt(10000);
         String randString = Integer.toString(randInt);
         uniqueCode = "ss" + randString;
-        return randString;
+        return uniqueCode;
     }
 
     @Override
