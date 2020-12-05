@@ -5,7 +5,7 @@ abstract class Hotel {
     long mobileNumber;
     String address;
     int numberOfbeds;
-    int roomNumber = 1; // by default, room number is 1
+    static int roomNumber = 0; // by default, room number is 1
     String uniqueCode;
     String email;
     boolean availibiliyOfAc;
@@ -24,7 +24,17 @@ abstract class Hotel {
         numberOfbeds = num;
     }
 
+    abstract void setUniqueCode(String code);
+
     abstract String getServices();
 
     abstract String getDetails();
+
+    abstract void setRoomNumber();
+
+    abstract void setRoomNumber(int number);
+
+    static void leaveRoom(){
+        roomNumber-=1;
+    }
 }

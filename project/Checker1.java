@@ -27,6 +27,12 @@ class Checker1 extends TimerTask {
         this.next = sdformat.parse(nextDate);
     }
 
+    public Date setDate(String date) throws ParseException {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+        Date current = simpleDateFormat.parse(date);
+        return current;
+    }
+
     public Date getNext(){
         return this.next;
     }
@@ -36,6 +42,7 @@ class Checker1 extends TimerTask {
         now = new Date();
         if (now.compareTo(this.next)==0){
             System.out.println("your session expired");
+            rental.leaveApartment();
             System.exit(0);
         }
     }

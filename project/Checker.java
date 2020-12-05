@@ -33,6 +33,7 @@ class Checker extends TimerTask{
         now = new Date();
         if (now.compareTo(this.next)==0){
             System.out.println("your session expired");
+            Hotel.leaveRoom();
             System.exit(0);
         }
     }

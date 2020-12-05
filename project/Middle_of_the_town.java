@@ -21,6 +21,12 @@ class Middle_of_the_town extends flats implements rental{
     }
 
     @Override
+    public int setPreviousFlatNumber(byte number) {
+        this.flatNumber = number;
+        return this.flatNumber;
+    }
+
+    @Override
     public String getUniqueCode() {
         Random random = new Random();
         int randInt = random.nextInt(10000);
@@ -32,5 +38,10 @@ class Middle_of_the_town extends flats implements rental{
     @Override
     public int getMonthlyCharge() {
         return monthlyCharge;
+    }
+
+    @Override
+    public void setUniqueCode(String code) {
+        this.uniqueCode = code;
     }
 }

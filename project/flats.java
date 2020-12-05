@@ -3,7 +3,7 @@ abstract class flats {
     String permanent_address;
     long adharId;
     long mobileNumber;
-    int flatNumber;
+    public static int flatNumber;
     String uniqueCode;
     int monthlyCharge;
     byte flatSize;
