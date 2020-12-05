@@ -595,7 +595,7 @@ public class Main_class {
                             rural_area.setUniqueCode(uniqueCode);
                             System.out.println("you have previously booked " + rural_area.flatSize + "BHK flat of rural area");
                             System.out.println("your monthly charge of apartment is " + rural_area.getMonthlyCharge());
-                            System.out.println("your unique code of the apartment is " + rural_area.getUniqueCode());
+                            System.out.println("your unique code of the apartment is " + uniqueCode);
                             System.out.println("your apartment number is " + rural_area.flatNumber);
                             Checker1 checker1 = new Checker1();
                             Date date = checker1.setDate(BookedDate);
@@ -681,7 +681,7 @@ public class Main_class {
                             middle_of_the_town.setUniqueCode(uniqueCode1);
                             System.out.println("you have previously booked " + middle_of_the_town.flatSize + "BHK flat of middle of the town area");
                             System.out.println("your monthly charge of apartment is " + middle_of_the_town.getMonthlyCharge());
-                            System.out.println("your unique code of the apartment is " + middle_of_the_town.getUniqueCode());
+                            System.out.println("your unique code of the apartment is " + uniqueCode1);
                             System.out.println("your apartment number is " + middle_of_the_town.flatNumber);
                             Checker1 checker11 = new Checker1();
                             Date date1 = checker11.setDate(BookedDate1);
@@ -767,7 +767,7 @@ public class Main_class {
                             seaFacing.setUniqueCode(uniqueCode2);
                             System.out.println("you have previously booked " + seaFacing.flatSize + "BHK flat of sea facing area");
                             System.out.println("your monthly charge of apartment is " + seaFacing.getMonthlyCharge());
-                            System.out.println("your unique code of the apartment is " + seaFacing.getUniqueCode());
+                            System.out.println("your unique code of the apartment is " + uniqueCode2);
                             System.out.println("your apartment number is " + seaFacing.flatNumber);
                             Checker1 checker12 = new Checker1();
                             Date date2 = checker12.setDate(BookedDate2);
